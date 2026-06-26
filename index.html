@@ -5,482 +5,777 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>名古屋 8天7夜 親子慢遊全攻略</title>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --purple-50: #EEEDFE;
-    --purple-200: #AFA9EC;
-    --purple-600: #534AB7;
-    --purple-800: #3C3489;
-    --teal-50: #E1F5EE;
-    --teal-800: #085041;
-    --coral-50: #FAECE7;
-    --coral-900: #4A1B0C;
-    --green-50: #EAF3DE;
-    --green-800: #27500A;
-    --amber-50: #FAEEDA;
-    --amber-800: #633806;
-    --blue-50: #E6F1FB;
-    --blue-800: #0C447C;
-    --surface-0: #F5F4F0;
-    --surface-1: #F0EEE9;
-    --surface-2: #FFFFFF;
-    --text-primary: #1A1A18;
-    --text-secondary: #5F5E5A;
-    --text-muted: #888780;
-    --border: rgba(0,0,0,0.1);
-    --radius: 8px;
-    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', 'PingFang TC', sans-serif;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --surface-0: #1A1A18;
-      --surface-1: #222220;
-      --surface-2: #2C2C2A;
-      --text-primary: #F0EEE9;
-      --text-secondary: #B4B2A9;
-      --text-muted: #888780;
-      --border: rgba(255,255,255,0.1);
-      --purple-50: #26215C;
-      --purple-800: #AFA9EC;
-      --teal-50: #04342C;
-      --teal-800: #9FE1CB;
-      --coral-50: #4A1B0C;
-      --coral-900: #F0997B;
-      --green-50: #173404;
-      --green-800: #C0DD97;
-      --amber-50: #412402;
-      --amber-800: #FAC775;
-      --blue-50: #042C53;
-      --blue-800: #85B7EB;
-    }
-  }
-  body { font-family: var(--font-sans); background: var(--surface-0); color: var(--text-primary); line-height: 1.7; font-size: 16px; }
-  .page { max-width: 760px; margin: 0 auto; padding: 2rem 1.25rem 5rem; }
-  .hero { text-align: center; padding: 3rem 1rem 2.5rem; border-bottom: 0.5px solid var(--border); margin-bottom: 2rem; }
-  .hero-tag { display: inline-block; background: var(--purple-50); color: var(--purple-800); font-size: 12px; font-weight: 500; padding: 4px 14px; border-radius: 20px; margin-bottom: 1rem; letter-spacing: 0.03em; }
-  .hero h1 { font-size: 28px; font-weight: 500; color: var(--text-primary); margin-bottom: 0.5rem; line-height: 1.3; }
-  .hero p { color: var(--text-secondary); font-size: 14px; }
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 2rem; }
-  .stat { background: var(--surface-1); border-radius: var(--radius); padding: 0.85rem 1rem; text-align: center; }
-  .stat-num { font-size: 24px; font-weight: 500; color: var(--purple-600); }
-  .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
-  .day-card { background: var(--surface-2); border: 0.5px solid var(--border); border-radius: 12px; margin-bottom: 1.5rem; overflow: hidden; }
-  .day-header { display: flex; align-items: center; gap: 12px; padding: 1rem 1.25rem; border-bottom: 0.5px solid var(--border); }
-  .day-badge { width: 40px; height: 40px; border-radius: 50%; background: var(--purple-50); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; color: var(--purple-800); flex-shrink: 0; }
-  .day-title { flex: 1; }
-  .day-title h2 { font-size: 15px; font-weight: 500; color: var(--text-primary); }
-  .day-title p { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
-  .day-date { font-size: 12px; color: var(--text-secondary); white-space: nowrap; }
-  .day-body { padding: 1.25rem; }
-  .tl-item { display: flex; gap: 12px; margin-bottom: 1rem; }
-  .tl-item:last-child { margin-bottom: 0; }
-  .tl-left { display: flex; flex-direction: column; align-items: center; min-width: 52px; }
-  .tl-time { font-size: 11px; font-weight: 500; color: var(--purple-600); white-space: nowrap; }
-  .tl-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--purple-200); margin: 4px 0; flex-shrink: 0; }
-  .tl-line { flex: 1; width: 1px; background: var(--border); min-height: 12px; }
-  .tl-content { flex: 1; padding-bottom: 4px; font-size: 13px; color: var(--text-primary); line-height: 1.65; }
-  .tl-content strong { font-weight: 500; color: var(--purple-800); }
-  a.map-link { display: inline-flex; align-items: center; gap: 3px; color: var(--purple-600); text-decoration: none; font-size: 11px; font-weight: 500; background: var(--purple-50); padding: 1px 7px; border-radius: 10px; margin-left: 4px; white-space: nowrap; vertical-align: middle; }
-  a.map-link:hover { opacity: 0.8; }
-  .transport-box { background: var(--blue-50); border-left: 3px solid #378ADD; border-radius: 0 var(--radius) var(--radius) 0; padding: 0.75rem 1rem; margin-top: 1rem; font-size: 12px; color: var(--blue-800); line-height: 1.8; }
-  .transport-box .tb-title { font-weight: 500; margin-bottom: 4px; }
-  .transport-box .tb-row { display: flex; gap: 6px; align-items: flex-start; margin-bottom: 2px; }
-  .transport-box .tb-step { background: #378ADD; color: #fff; border-radius: 50%; width: 16px; height: 16px; font-size: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
-  .section-label { font-size: 11px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin: 1.25rem 0 0.75rem; }
-  .meal-row { display: flex; gap: 10px; align-items: flex-start; padding: 0.65rem 0; border-bottom: 0.5px solid var(--border); }
-  .meal-row:last-child { border-bottom: none; }
-  .meal-tag { font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 12px; white-space: nowrap; flex-shrink: 0; margin-top: 1px; }
-  .tag-breakfast { background: var(--amber-50); color: var(--amber-800); }
-  .tag-lunch { background: var(--green-50); color: var(--green-800); }
-  .tag-dinner { background: var(--coral-50); color: var(--coral-900); }
-  .tag-snack { background: var(--teal-50); color: var(--teal-800); }
-  .meal-text { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
-  .meal-text strong { color: var(--text-primary); font-weight: 500; }
-  .tip-box { background: var(--purple-50); border-left: 3px solid var(--purple-600); border-radius: 0 var(--radius) var(--radius) 0; padding: 0.75rem 1rem; margin-top: 1rem; font-size: 12px; color: var(--purple-800); line-height: 1.65; }
-  .hotel-row { display: flex; align-items: center; gap: 8px; padding: 0.65rem 0.85rem; background: var(--surface-1); border-radius: var(--radius); margin-top: 1rem; font-size: 13px; color: var(--text-secondary); }
-  .hotel-row strong { color: var(--text-primary); font-weight: 500; }
-  @media (max-width: 500px) {
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .hero h1 { font-size: 22px; }
-    .day-title h2 { font-size: 14px; }
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:        #FBF5EC;
+  --card:      #FFFDF8;
+  --card2:     #FFF8F0;
+  --crimson:   #8B1A2F;
+  --crimson-l: #F9E8EB;
+  --gold:      #B8820A;
+  --gold-l:    #FEF5DC;
+  --navy:      #1C2B44;
+  --text:      #2C1F14;
+  --muted:     #7A6A58;
+  --border:    rgba(139,26,47,0.12);
+  --shadow:    0 2px 16px rgba(44,31,20,0.08);
+  --r:         12px;
+  --font: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Noto Sans TC', 'PingFang TC', -apple-system, sans-serif;
+}
+body { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.8; }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  height: 520px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.hero-img {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=1400&q=80') center/cover no-repeat;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(28,43,68,0.88) 0%, rgba(28,43,68,0.2) 60%, transparent 100%);
+}
+.hero-text {
+  position: relative;
+  padding: 2.5rem 2rem;
+  color: #fff;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+.hero-kana { font-size: 13px; letter-spacing: 0.15em; opacity: 0.8; margin-bottom: 8px; }
+.hero-title { font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+.hero-sub { font-size: 15px; opacity: 0.85; }
+.hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.hbadge { background: rgba(255,255,255,0.18); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 12px; padding: 4px 12px; border-radius: 20px; }
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: var(--navy);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.stat { padding: 1.25rem 1rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.08); }
+.stat:last-child { border-right: none; }
+.stat-n { font-size: 28px; font-weight: 700; color: #F4C542; }
+.stat-l { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 2px; }
+
+/* ── MAIN ── */
+.main { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.25rem 6rem; }
+
+/* ── DAY CARD ── */
+.day-card {
+  background: var(--card);
+  border-radius: var(--r);
+  box-shadow: var(--shadow);
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.day-cover {
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+}
+.day-cover img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.day-cover-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(28,43,68,0.75) 0%, transparent 55%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem 1.5rem;
+}
+.day-cover-text { color: #fff; }
+.day-num { font-size: 11px; letter-spacing: 0.12em; opacity: 0.8; font-weight: 600; }
+.day-cover-title { font-size: 20px; font-weight: 700; line-height: 1.3; margin: 4px 0 2px; }
+.day-cover-date { font-size: 13px; opacity: 0.8; }
+
+.day-body { padding: 1.75rem 1.75rem 1.5rem; }
+
+/* ── TIMELINE ── */
+.tl { position: relative; }
+.tl-item { display: flex; gap: 14px; padding-bottom: 1.25rem; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-side { display: flex; flex-direction: column; align-items: center; min-width: 58px; }
+.tl-time { font-size: 12px; font-weight: 700; color: var(--crimson); letter-spacing: 0.02em; white-space: nowrap; }
+.tl-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); border: 2px solid var(--card); box-shadow: 0 0 0 2px var(--gold); margin: 5px 0 0; flex-shrink: 0; }
+.tl-line { flex: 1; width: 1px; background: var(--border); margin-top: 4px; }
+.tl-main { flex: 1; padding-top: 2px; padding-bottom: 4px; }
+.tl-main p { font-size: 15px; line-height: 1.7; color: var(--text); }
+.tl-main strong { font-weight: 700; color: var(--navy); }
+.tl-main .spot-name { font-size: 15px; font-weight: 700; color: var(--navy); display: inline; }
+
+a.ml {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 11px; font-weight: 600;
+  color: var(--crimson);
+  background: var(--crimson-l);
+  padding: 2px 8px; border-radius: 10px;
+  margin-left: 5px; text-decoration: none;
+  white-space: nowrap; vertical-align: middle;
+}
+a.ml:hover { background: #f4d0d5; }
+
+/* ── TRANSPORT ── */
+.transport {
+  background: var(--gold-l);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 var(--r) var(--r) 0;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.transport-title { font-size: 13px; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+.t-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 6px; font-size: 14px; color: var(--text); line-height: 1.6; }
+.t-row:last-child { margin-bottom: 0; }
+.t-num { width: 20px; height: 20px; border-radius: 50%; background: var(--gold); color: #fff; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.t-num.warn { background: var(--crimson); }
+
+/* ── SECTION LABEL ── */
+.sec-label {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--muted); margin: 1.75rem 0 1rem;
+  display: flex; align-items: center; gap: 8px;
+}
+.sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* ── MEAL GRID ── */
+.meal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.meal-card {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.meal-img { width: 100%; height: 150px; object-fit: cover; display: block; background: #f0e8d8; }
+.meal-body { padding: 0.85rem 1rem 1rem; }
+.meal-tag-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.meal-tag { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.t-b { background: #FEF3D7; color: #7A4A00; }
+.t-l { background: #E8F5E3; color: #2A5A18; }
+.t-d { background: #FCEAED; color: #6B1020; }
+.t-s { background: #E0F4EE; color: #0A5040; }
+.meal-name { font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1.4; }
+.meal-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin-top: 4px; }
+.meal-maplink { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; font-weight: 600; color: var(--crimson); background: var(--crimson-l); padding: 2px 8px; border-radius: 10px; margin-top: 6px; text-decoration: none; }
+
+/* ── TIP ── */
+.tip {
+  background: #FEF9F0;
+  border: 1px solid rgba(184,130,10,0.2);
+  border-radius: var(--r);
+  padding: 0.85rem 1.1rem;
+  font-size: 14px; color: #5A3E00; line-height: 1.7;
+  margin-top: 1.5rem;
+}
+.tip::before { content: '💡 '; }
+
+/* ── HOTEL ── */
+.hotel-row {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--navy);
+  border-radius: var(--r);
+  padding: 0.85rem 1.25rem;
+  margin-top: 1.25rem;
+  font-size: 14px; color: rgba(255,255,255,0.75);
+}
+.hotel-row strong { color: #F4C542; font-weight: 700; }
+.hotel-row a.ml { background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .hero { height: 380px; }
+  .hero-title { font-size: 26px; }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .day-cover { height: 180px; }
+  .day-cover-title { font-size: 17px; }
+  .day-body { padding: 1.25rem 1rem; }
+  .meal-grid { grid-template-columns: 1fr; }
+  .tl-main p { font-size: 14px; }
+}
 </style>
 </head>
 <body>
-<div class="page">
-  <div class="hero">
-    <div class="hero-tag">親子慢遊全攻略</div>
-    <h1>名古屋 8天7夜</h1>
-    <p>2025 年 10 月 4 日（日）— 10 月 11 日（日）</p>
-  </div>
 
-  <div class="stats">
-    <div class="stat"><div class="stat-num">8</div><div class="stat-label">天數</div></div>
-    <div class="stat"><div class="stat-num">3</div><div class="stat-label">大景點</div></div>
-    <div class="stat"><div class="stat-num">2</div><div class="stat-label">住宿飯店</div></div>
-    <div class="stat"><div class="stat-num">3</div><div class="stat-label">歲寶寶同行</div></div>
-  </div>
-
-  <!-- DAY 1 -->
-  <div class="day-card">
-    <div class="day-header">
-      <div class="day-badge">D1</div>
-      <div class="day-title">
-        <h2>抵達名古屋・榮區夢幻夜景散步</h2>
-        <p>中部國際機場 → 榮站</p>
-      </div>
-      <div class="day-date">10/4 日</div>
-    </div>
-    <div class="day-body">
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">15:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">
-          <strong>中部國際機場（Centrair）</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=中部国際空港+愛知県" target="_blank">📍 地圖</a> 入境完成
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">16:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">
-          步行至名鐵線月台，購買<strong>特急 μ-SKY 乘車券 + 特別車輛券</strong>（大人單程 ¥1,430，3歲免費）→ 搭 16:37 班次，17:07 直達<strong>名古屋車站</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=名古屋駅" target="_blank">📍 地圖</a>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">17:10</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">
-          跟著「地下鐵」指標移動，購買地下鐵單程票（大人 ¥210）→ 搭<strong>東山線（往藤之丘方向）</strong>坐 2 站至<strong>榮站</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=栄駅+名古屋市営地下鉄" target="_blank">📍 地圖</a> → 由 <strong>4A 出口（有電梯）</strong>出站，步行至飯店 Check-in
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">18:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">
-          步行至<strong>綠洲 21（Oasis 21）</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=オアシス21+名古屋市中区" target="_blank">📍 地圖</a>，登上頂樓「水之宇宙船」，玻璃地板與水池亮燈非常夢幻，空間寬廣平坦適合幼兒奔跑（營業時間 10:00~22:00）
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">19:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">享用晚餐，餐後帶女兒回飯店洗澡睡覺，調整旅行步調</div>
-      </div>
-      <div class="transport-box">
-        <div class="tb-title">🚃 今日交通總覽</div>
-        <div class="tb-row"><div class="tb-step">1</div><div>名鐵特急 μ-SKY：中部國際機場 → 名古屋車站（¥1,430 / 30 分鐘）</div></div>
-        <div class="tb-row"><div class="tb-step">2</div><div>地下鐵東山線：名古屋 → 榮（¥210 / 約 5 分鐘，2 站）</div></div>
-      </div>
-      <div class="section-label">今日餐廳</div>
-      <div class="meal-row"><span class="meal-tag tag-dinner">晚餐</span><span class="meal-text"><strong>矢場炸豬排 榮LACHIC店</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=矢場とん+ラシック+名古屋栄" target="_blank">📍 地圖</a>（LACHIC 9F，營業至22:00）— 女兒點兒童小車造型豬排套餐，大人點招牌鐵板味噌豬排</span></div>
-      <div class="tip-box">榮站地下街超大，推推車請跟著地面「黃色輪椅/推車貼紙」指標搭乘電梯直達地面</div>
-      <div class="hotel-row">🛏 今日住宿：<strong>榮區精選飯店</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=栄+ホテル+名古屋市中区" target="_blank">📍 地圖</a></div>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <div class="hero-kana">NAGOYA · JAPAN · 2025</div>
+    <div class="hero-title">名古屋 8天7夜<br>終極親子慢遊全攻略</div>
+    <div class="hero-sub">2025 年 10 月 4 日（日）— 10 月 11 日（日）</div>
+    <div class="hero-badges">
+      <span class="hbadge">吉卜力公園</span>
+      <span class="hbadge">樂高樂園</span>
+      <span class="hbadge">麵包超人博物館</span>
+      <span class="hbadge">名古屋市科學館</span>
+      <span class="hbadge">熱田神宮</span>
+      <span class="hbadge">3歲親子友善</span>
+      <span class="hbadge">全程無障礙推車</span>
     </div>
   </div>
-
-  <!-- DAY 2 -->
-  <div class="day-card">
-    <div class="day-header">
-      <div class="day-badge">D2</div>
-      <div class="day-title">
-        <h2>飯店大風吹・則武之森大草皮放電</h2>
-        <p>榮區退房 → Vessel Hotel（此後 6 晚不挪窩）</p>
-      </div>
-      <div class="day-date">10/5 一</div>
-    </div>
-    <div class="day-body">
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">09:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">榮區飯店退房 → Uber 叫計程車（¥1,500~¥2,000）直達 <strong>Vessel Hotel Campana 名古屋</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Nagoya" target="_blank">📍 地圖</a> 寄放行李</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">10:15</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">步行 6 分鐘至<strong>則武之森（Noritake之森）</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=ノリタケの森+名古屋市西区" target="_blank">📍 地圖</a>，復古紅磚建築與超大草皮，讓女兒吹泡泡、盡情奔跑（園區戶外全天開放）</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">11:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">步行至 <strong>AEON MALL Nagoya Noritake Garden</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=イオンモール名古屋ノリタケガーデン" target="_blank">📍 地圖</a>，3F 用餐後逛<strong>蔦屋書店（TSUTAYA）</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=蔦屋書店+イオンモール名古屋ノリタケガーデン" target="_blank">📍 地圖</a> 巨型鏡面書牆，在兒童繪本專區共讀</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">14:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">女兒推車午睡，爸媽在 AEON MALL 放鬆逛街、補貨日系童裝與生活雜貨</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">16:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">步行回 Vessel Hotel 正式入住，享用大廳免費迎賓飲料（每日 14:00~21:00），榻榻米房間稍作休息</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">18:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">前往名古屋車站上方<strong>高島屋</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=高島屋+名古屋駅" target="_blank">📍 地圖</a>享用晚餐，步行回飯店</div>
-      </div>
-      <div class="transport-box">
-        <div class="tb-title">🚗 今日交通總覽</div>
-        <div class="tb-row"><div class="tb-step">1</div><div>Uber 計程車：榮區飯店 → Vessel Hotel（約 ¥1,500~¥2,000）</div></div>
-        <div class="tb-row"><div class="tb-step">2</div><div>全日步行為主，則武之森、AEON MALL、Vessel Hotel 皆在步行距離內，無需搭乘地鐵</div></div>
-      </div>
-      <div class="section-label">今日餐廳</div>
-      <div class="meal-row"><span class="meal-tag tag-breakfast">早餐</span><span class="meal-text"><strong>客美多咖啡 BREAD ERA 則武之森店</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=コメダ珈琲店+ノリタケの森" target="_blank">📍 地圖</a>（08:00 起）— 黑咖啡免費送厚片吐司，加點小倉紅豆泥</span></div>
-      <div class="meal-row"><span class="meal-tag tag-lunch">午餐</span><span class="meal-text"><strong>AEON MALL 3F 美食街 Kids Park</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=イオンモール名古屋ノリタケガーデン+フードコート" target="_blank">📍 地圖</a>— 降低高度的迷你桌椅，周邊圍繞軟墊遊戲區</span></div>
-      <div class="meal-row"><span class="meal-tag tag-dinner">晚餐</span><span class="meal-text"><strong>富士山高島屋 12F 雞三和</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=鶏三和+高島屋名古屋店" target="_blank">📍 地圖</a>（營業至23:00）— 名古屋地雞親子丼，3歲寶寶能自己吃大半碗</span></div>
-      <div class="tip-box">今日全程不需搭地下鐵！全路段平面寬敞人行道，推車通行極度流暢</div>
-      <div class="hotel-row">🛏 今日住宿：<strong>Vessel Hotel Campana 名古屋</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Nagoya" target="_blank">📍 地圖</a>（此後連住 6 晚）</div>
-    </div>
-  </div>
-
-  <!-- DAY 3 -->
-  <div class="day-card">
-    <div class="day-header">
-      <div class="day-badge">D3</div>
-      <div class="day-title">
-        <h2>重頭戲！吉卜力公園夢幻驚喜之旅</h2>
-        <p>直達巴士 → 動動力森林 → 吉卜力大倉庫</p>
-      </div>
-      <div class="day-date">10/6 二</div>
-    </div>
-    <div class="day-body">
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">08:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">步行 10 分鐘至<strong>名鐵巴士中心（Meitetsu Bus Center）4F 24 號站牌</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=名鉄バスセンター+名古屋市中村区" target="_blank">📍 地圖</a>，搭 09:00 直達巴士前往吉卜力公園（大人 ¥1,000，車程約 40 分鐘）</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">10:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">抵達<strong>吉卜力公園</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=ジブリパーク+愛知県長久手市" target="_blank">📍 地圖</a> → 持大散步券直奔<strong>動動力森林（Dondoko Forest）</strong>（開放時間 10:00~17:00），5 公尺巨大木造龍貓神木，幼童可鑽進去玩耍</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">12:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">在長椅或樹蔭下野餐休息</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">13:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">進入<strong>吉卜力大倉庫</strong>，兒童遊戲區「貓巴士房（Children's Town）」—— 可爬進大貓巴士內部、在巨型蒲公英絨毛墊彈跳，放電極致！</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">16:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">於正門口巴士站牌搭 16:40 直達巴士返回名古屋車站，晚餐後回飯店</div>
-      </div>
-      <div class="transport-box">
-        <div class="tb-title">🚌 今日交通總覽</div>
-        <div class="tb-row"><div class="tb-step">1</div><div>步行：Vessel Hotel → 名鐵巴士中心（約 10 分鐘）</div></div>
-        <div class="tb-row"><div class="tb-step">2</div><div>高速直達巴士：名鐵巴士中心 4F 24號站牌 → 吉卜力公園（¥1,000 / 約 40 分鐘）</div></div>
-        <div class="tb-row"><div class="tb-step">3</div><div>返程同路線巴士：16:40 班次返回名古屋車站（¥1,000）</div></div>
-        <div class="tb-row"><div class="tb-step">！</div><div>強烈推薦巴士，避免地鐵轉乘利尼莫線（Linimo）在地下街推車折騰</div></div>
-      </div>
-      <div class="section-label">今日餐廳</div>
-      <div class="meal-row"><span class="meal-tag tag-lunch">午餐</span><span class="meal-text"><strong>便利商店輕食野餐</strong>— 出發前在名古屋車站便利商店買好御飯糰、麵包、果汁，園內餐廳大排長龍不適合帶小孩等</span></div>
-      <div class="meal-row"><span class="meal-tag tag-dinner">晚餐</span><span class="meal-text"><strong>風來坊 手羽先 名古屋車站西口店</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=風来坊+名古屋駅西口" target="_blank">📍 地圖</a>（16:00~23:00）— 必吃炸雞翅，口味偏甜。交待「元祖手羽先，椒鹽少、不加胡椒」</span></div>
-      <div class="tip-box">帶幼兒強烈推薦直達巴士，避免在地下街推車轉乘利尼莫線（Linimo）耗費過多體力</div>
-      <div class="hotel-row">🛏 今日住宿：<strong>Vessel Hotel Campana 名古屋</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Nagoya" target="_blank">📍 地圖</a></div>
-    </div>
-  </div>
-
-  <!-- DAY 4 -->
-  <div class="day-card">
-    <div class="day-header">
-      <div class="day-badge">D4</div>
-      <div class="day-title">
-        <h2>市區全室內放電・名古屋市科學館</h2>
-        <p>伏見站 → 科學館 → 鰻魚飯晚餐</p>
-      </div>
-      <div class="day-date">10/7 三</div>
-    </div>
-    <div class="day-body">
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">09:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">從飯店步行至<strong>名古屋車站</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=名古屋駅" target="_blank">📍 地圖</a>，搭地下鐵東山線 2 站至<strong>伏見站</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=伏見駅+名古屋市営地下鉄" target="_blank">📍 地圖</a>（¥210），由 <strong>4 號出口（有電梯）</strong>出站，穿過白川公園</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">10:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content"><strong>名古屋市科學館</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=名古屋市科学館+名古屋市中区栄二丁目" target="_blank">📍 地圖</a>（09:30~17:00，大人 ¥400，3歲免費）— 2F 水之廣場穿防水圍裙玩水力機關；3F 大紅按鈕軌道球 + 9 公尺人工龍捲風定時表演</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">13:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">步行至伏見站周邊享用午餐，原路線搭地鐵回名古屋車站</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">14:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">寬鬆午後，讓女兒回飯店好好補眠</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">18:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">散步至飯店附近享用<strong>鰻魚飯晚餐</strong></div>
-      </div>
-      <div class="transport-box">
-        <div class="tb-title">🚃 今日交通總覽</div>
-        <div class="tb-row"><div class="tb-step">1</div><div>地下鐵東山線：名古屋車站 → 伏見站（¥210 / 約 3 分鐘，2 站）</div></div>
-        <div class="tb-row"><div class="tb-step">2</div><div>步行：伏見站 4 號出口 → 白川公園 → 科學館（約 5 分鐘）</div></div>
-        <div class="tb-row"><div class="tb-step">3</div><div>返程：原路線地下鐵東山線返回名古屋車站（¥210）</div></div>
-      </div>
-      <div class="section-label">今日餐廳</div>
-      <div class="meal-row"><span class="meal-tag tag-lunch">午餐</span><span class="meal-text"><strong>和食麵處 嵯峨味（サガミ）名古屋站前店</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=サガミ+名古屋駅前店" target="_blank">📍 地圖</a>（11:00~22:00）— 獨立榻榻米包廂，備有兒童餐具與兒童菜單</span></div>
-      <div class="meal-row"><span class="meal-tag tag-dinner">晚餐</span><span class="meal-text"><strong>ひつまぶし備長 大名古屋大廈店</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=ひつまぶし備長+大名古屋ビルヂング" target="_blank">📍 地圖</a>（大名古屋大廈3F，營業至22:00）— 外皮酥脆無刺鰻魚，剁碎淋醬汁拌白飯給女兒吃</span></div>
-      <div class="tip-box">科學館全室內無障礙，三棟樓互相連通，推推車暢行無阻</div>
-      <div class="hotel-row">🛏 今日住宿：<strong>Vessel Hotel Campana 名古屋</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Nagoya" target="_blank">📍 地圖</a></div>
-    </div>
-  </div>
-
-  <!-- DAY 5 -->
-  <div class="day-card">
-    <div class="day-header">
-      <div class="day-badge">D5</div>
-      <div class="day-title">
-        <h2>東別院生活朝市・熱田神宮散步</h2>
-        <p>卡死這天！名古屋最大寺廟市集</p>
-      </div>
-      <div class="day-date">10/8 四</div>
-    </div>
-    <div class="day-body">
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">09:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">從飯店步行至名古屋車站，搭地下鐵<strong>東山線→伏見站轉鶴舞線→上前津站轉名城線</strong>坐 1 站至<strong>東別院站</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=東別院駅+名古屋市営地下鉄" target="_blank">📍 地圖</a>（全程電子票證扣款 ¥240），<strong>4 號出口（有電梯）</strong>步行 3 分鐘</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">10:15</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content"><strong>東別院生活朝市</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=東別院+手作り朝市+名古屋市中区" target="_blank">📍 地圖</a>（10:00~14:00）— 百家手作文青雜貨與在地小農美食，廟宇廣場地面平坦、推車極好推</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">12:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">回到東別院站，搭地下鐵<strong>名城線（往金山/名古屋港方向）</strong>4 站至<strong>熱田神宮西站</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=熱田神宮西駅+名古屋市営地下鉄" target="_blank">📍 地圖</a>（¥240），<strong>2 號出口（有電梯）</strong>出站</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">13:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content"><strong>熱田神宮</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=熱田神宮+名古屋市熱田区" target="_blank">📍 地圖</a>（境內全天開放）— 女兒午睡，爸媽享受千年古木芬多精；女兒醒後尋找草地野生「神雞」，境內享用寬麵下午茶</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">16:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">從<strong>神宮前站</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=神宮前駅+名古屋市熱田区" target="_blank">📍 地圖</a>搭名鐵常滑線特急返回名古屋車站（¥240）</div>
-      </div>
-      <div class="transport-box">
-        <div class="tb-title">🚃 今日交通總覽</div>
-        <div class="tb-row"><div class="tb-step">1</div><div>地下鐵：名古屋車站 → 東別院站（東山線→鶴舞線→名城線，¥240）</div></div>
-        <div class="tb-row"><div class="tb-step">2</div><div>地下鐵名城線：東別院站 → 熱田神宮西站（¥240，4 站）</div></div>
-        <div class="tb-row"><div class="tb-step">3</div><div>名鐵常滑線特急：神宮前站 → 名古屋車站（¥240，約 8 分鐘）</div></div>
-      </div>
-      <div class="section-label">今日餐廳</div>
-      <div class="meal-row"><span class="meal-tag tag-breakfast">早午餐</span><span class="meal-text"><strong>東別院市集現場野餐</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=東別院+手作り朝市+名古屋" target="_blank">📍 地圖</a>— 現烤酵母麵包、手作戚風蛋糕、小農手捏飯糰，廟宇廣場長椅愜意野餐</span></div>
-      <div class="meal-row"><span class="meal-tag tag-snack">下午茶</span><span class="meal-text"><strong>宮きしめん（Miya Kishimen）神宮店</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=宮きしめん+熱田神宮" target="_blank">📍 地圖</a>（09:00~16:30）— 境內露天雅座，推車免收費，甜甜柴魚高湯超對小小孩的胃</span></div>
-      <div class="tip-box">熱田神宮境內多碎石子路，推推車請走參道兩側較平坦的泥土路邊緣，省力非常多</div>
-      <div class="hotel-row">🛏 今日住宿：<strong>Vessel Hotel Campana 名古屋</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Nagoya" target="_blank">📍 地圖</a></div>
-    </div>
-  </div>
-
-  <!-- DAY 6 -->
-  <div class="day-card">
-    <div class="day-header">
-      <div class="day-badge">D6</div>
-      <div class="day-title">
-        <h2>女兒瘋狂巔峰・長島麵包超人兒童博物館</h2>
-        <p>高速巴士直達 → 博物館 → Outlet 掃貨</p>
-      </div>
-      <div class="day-date">10/9 五</div>
-    </div>
-    <div class="day-body">
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">08:45</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">步行至<strong>名鐵巴士中心 4F 22 號站牌</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=名鉄バスセンター+名古屋市中村区" target="_blank">📍 地圖</a>，在自動售票機購買「名古屋 → 長島溫泉」來回優惠套票（大人 ¥2,100，3歲免費），搭 09:00 高速巴士（約 50 分鐘）</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">10:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content"><strong>長島麵包超人兒童博物館</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=アンパンマンこどもミュージアム+長島" target="_blank">📍 地圖</a>（10:00~17:00，¥2,000~¥2,500）— 正版角色人偶戶外表演、彩虹溜滑梯、擬真麵包工廠；3 歲麵包超人崇拜最高峰！</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">14:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">移師隔壁 <strong>Jazz Dream 長島 Outlet</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=ジャズドリーム長島+桑名市" target="_blank">📍 地圖</a>（10:00~20:00），女兒推車秒睡，媽媽開啟瘋狂逛街模式</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">16:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">於下車處原站牌搭高速巴士返回名古屋車站</div>
-      </div>
-      <div class="transport-box">
-        <div class="tb-title">🚌 今日交通總覽</div>
-        <div class="tb-row"><div class="tb-step">1</div><div>步行：Vessel Hotel → 名鐵巴士中心（約 10 分鐘）</div></div>
-        <div class="tb-row"><div class="tb-step">2</div><div>高速直達巴士：名鐵巴士中心 4F 22號站牌 → 長島溫泉（¥1,050 / 約 50 分鐘，來回 ¥2,100）</div></div>
-        <div class="tb-row"><div class="tb-step">3</div><div>返程：16:30 班次原站牌返回名古屋車站</div></div>
-      </div>
-      <div class="section-label">今日餐廳</div>
-      <div class="meal-row"><span class="meal-tag tag-lunch">午餐</span><span class="meal-text"><strong>麵包超人樂園內美食街</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=アンパンマンこどもミュージアム+長島+レストラン" target="_blank">📍 地圖</a>— 可愛造型容器烏龍麵/飯類，餐具全為耐摔樹脂</span></div>
-      <div class="meal-row"><span class="meal-tag tag-dinner">晚餐</span><span class="meal-text"><strong>高島屋地下街（B1）外帶 → 房內深夜居酒屋</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=高島屋+名古屋駅+地下食品売場" target="_blank">📍 地圖</a>— 特價高級便當、現烤串燒、握壽司，等女兒秒睡後享用難得放風時光</span></div>
-      <div class="hotel-row">🛏 今日住宿：<strong>Vessel Hotel Campana 名古屋</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Nagoya" target="_blank">📍 地圖</a></div>
-    </div>
-  </div>
-
-  <!-- DAY 7 -->
-  <div class="day-card">
-    <div class="day-header">
-      <div class="day-badge">D7</div>
-      <div class="day-title">
-        <h2>樂高樂園深度玩・大須商店街</h2>
-        <p>金城埠頭 → LEGOLAND → 大須 → 飛驒牛畢業大餐</p>
-      </div>
-      <div class="day-date">10/10 六</div>
-    </div>
-    <div class="day-body">
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">09:15</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">於名古屋車站搭<strong>青波線（Aonami Line）</strong>直達終點<strong>金城埠頭站</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=金城ふ頭駅+名古屋市港区" target="_blank">📍 地圖</a>（¥360，約 24 分鐘）</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">10:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content"><strong>日本樂高樂園（LEGOLAND Japan）</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=レゴランド・ジャパン+名古屋市港区" target="_blank">📍 地圖</a>（10:00~17:00，3歲 ¥3,700 起，大人 ¥4,900 起）— 滿 90cm 可搭 8 成設施；主攻得寶谷積木城堡、小火車、潛水艇看真鯊魚</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">14:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">搭青波線回名古屋站，轉地下鐵<strong>櫻通線 2 站至丸之內站，原地轉鶴舞線 2 站至大須觀音站</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=大須観音駅+名古屋市営地下鉄" target="_blank">📍 地圖</a>（¥240），<strong>2 號出口（有電梯）</strong>出站</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">15:10</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content"><strong>大須商店街</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=大須商店街+名古屋市中区大須" target="_blank">📍 地圖</a>— 廟前廣場餵鴿子、<strong>橡子共和國龍貓專賣店</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=どんぐり共和国+大須" target="_blank">📍 地圖</a>、Seria 百元店，女兒推車午睡，爸媽自在逛老街</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">17:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">Uber 叫計程車回 Vessel Hotel（¥1,200），2F 大浴場洗澡換衣，迎接<strong>畢業大餐</strong></div>
-      </div>
-      <div class="transport-box">
-        <div class="tb-title">🚃 今日交通總覽</div>
-        <div class="tb-row"><div class="tb-step">1</div><div>青波線（Aonami Line）：名古屋車站 → 金城埠頭站（¥360 / 約 24 分鐘）</div></div>
-        <div class="tb-row"><div class="tb-step">2</div><div>青波線返程：金城埠頭站 → 名古屋車站（¥360）</div></div>
-        <div class="tb-row"><div class="tb-step">3</div><div>地下鐵：名古屋 → 丸之內（櫻通線）→ 大須觀音（鶴舞線），共 ¥240</div></div>
-        <div class="tb-row"><div class="tb-step">4</div><div>Uber 計程車：大須商店街 → Vessel Hotel（約 ¥1,200）</div></div>
-      </div>
-      <div class="section-label">今日餐廳</div>
-      <div class="meal-row"><span class="meal-tag tag-breakfast">早餐</span><span class="meal-text"><strong>名鐵百貨 1F 星乃珈琲店</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=星乃珈琲店+名鉄百貨店+名古屋" target="_blank">📍 地圖</a>（08:00 起）— 現點現做窯烤舒芙蕾熱蛋糕，淋楓糖漿</span></div>
-      <div class="meal-row"><span class="meal-tag tag-lunch">午餐</span><span class="meal-text"><strong>樂高樂園內 / Maker's Pier 商圈</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=メイカーズピア+名古屋市港区" target="_blank">📍 地圖</a>— 可愛的樂高積木造型薯條</span></div>
-      <div class="meal-row"><span class="meal-tag tag-dinner">畢業大餐</span><span class="meal-text"><strong>馬喰一代 飛驒牛燒肉 名古屋長良店</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=馬喰一代+名古屋長良店" target="_blank">📍 地圖</a>（17:00~23:00）— 頂級飛驒牛，獨立封閉包廂（個室），建議出發前一個月在官網預約</span></div>
-      <div class="hotel-row">🛏 今日住宿：<strong>Vessel Hotel Campana 名古屋</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Nagoya" target="_blank">📍 地圖</a></div>
-    </div>
-  </div>
-
-  <!-- DAY 8 -->
-  <div class="day-card">
-    <div class="day-header">
-      <div class="day-badge">D8</div>
-      <div class="day-title">
-        <h2>機場波音室內公園・平安返台</h2>
-        <p>FLIGHT OF DREAMS → 出境 → 登機</p>
-      </div>
-      <div class="day-date">10/11 日</div>
-    </div>
-    <div class="day-body">
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">09:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">Vessel Hotel 退房 → 步行至名古屋車站，搭<strong>名鐵特急 μ-SKY</strong> 直達<strong>中部國際機場（Centrair）</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=中部国際空港+愛知県常滑市" target="_blank">📍 地圖</a>（30 分鐘，¥1,430）</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">10:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">登機手續完成後，直奔機場 1F <strong>FLIGHT OF DREAMS</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=フライト・オブ・ドリームズ+中部国際空港" target="_blank">📍 地圖</a>（10:00~17:00，攀爬網 ¥500）— 圍繞真實波音 787 的巨大室內公園，女兒瘋狂奔跑 2 小時，上飛機秒睡，完美收官！</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">12:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">機場 4F <strong>藍天城（Sky Town）江戶老街</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=スカイタウン+中部国際空港" target="_blank">📍 地圖</a>午餐後出境過海關</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-left"><span class="tl-time">14:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
-        <div class="tl-content">順利登機返台</div>
-      </div>
-      <div class="transport-box">
-        <div class="tb-title">🚃 今日交通總覽</div>
-        <div class="tb-row"><div class="tb-step">1</div><div>名鐵特急 μ-SKY：名古屋車站 → 中部國際機場（¥1,430 / 約 30 分鐘）</div></div>
-        <div class="tb-row"><div class="tb-step">！</div><div>記得提早 3 小時抵達機場，先辦理登機手續 & 寄放行李再去 FLIGHT OF DREAMS 放電</div></div>
-      </div>
-      <div class="section-label">今日餐廳</div>
-      <div class="meal-row"><span class="meal-tag tag-breakfast">早餐</span><span class="meal-text"><strong>名古屋車站地下街（Esca）コンパル</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=コンパル+エスカ名古屋駅" target="_blank">📍 地圖</a>（08:00 起）— 創業 80 年昭和老店，招牌炸蝦三明治（エビフライサンド）</span></div>
-      <div class="meal-row"><span class="meal-tag tag-lunch">午餐</span><span class="meal-text"><strong>機場 4F 藍天城 丸龜製麵</strong><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=丸亀製麺+中部国際空港" target="_blank">📍 地圖</a>（10:00~21:00）— 上飛機前一碗溫熱烏龍麵暖暖胃</span></div>
-    </div>
-  </div>
-
 </div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-n">8</div><div class="stat-l">旅遊天數</div></div>
+  <div class="stat"><div class="stat-n">5</div><div class="stat-l">親子大景點</div></div>
+  <div class="stat"><div class="stat-n">2</div><div class="stat-l">住宿飯店</div></div>
+  <div class="stat"><div class="stat-n">3</div><div class="stat-l">歲寶寶同行</div></div>
+</div>
+
+<div class="main">
+
+<!-- ══ DAY 1 ══ -->
+<div class="day-card">
+  <div class="day-cover">
+    <img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?w=900&q=80" alt="名古屋夜景" loading="lazy">
+    <div class="day-cover-overlay">
+      <div class="day-cover-text">
+        <div class="day-num">DAY 01 · 10/4（日）</div>
+        <div class="day-cover-title">抵達名古屋・榮區夢幻夜景散步</div>
+        <div class="day-cover-date">中部國際機場 → 名古屋車站 → 榮區</div>
+      </div>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">15:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p><span class="spot-name">中部國際機場（Centrair）</span><a class="ml" href="https://www.google.com/maps/search/?api=1&query=中部国際空港" target="_blank">📍地圖</a> 完成入境手續，步行至名鐵月台，購買<strong>特急 μ-SKY 乘車券＋特別車輛券</strong>（大人單程 ¥1,430，3歲免費）</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">16:37</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>搭乘 16:37 班次特急，17:07 直達<strong>名古屋車站</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=名古屋駅" target="_blank">📍地圖</a>，跟著「地下鐵」指標移動，購買單程票（大人 ¥210）</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">17:15</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>搭地下鐵<strong>東山線（往藤之丘方向）</strong>2 站至<strong>榮站</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=栄駅+名古屋市営地下鉄" target="_blank">📍地圖</a>，由 <strong>4A 出口（有電梯）</strong>出站，步行至飯店辦理 Check-in、寄放行李</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">18:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>步行至<strong>綠洲 21（Oasis 21）</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=オアシス21+名古屋市中区" target="_blank">📍地圖</a>，登上頂樓「水之宇宙船」，玻璃地板與水池亮燈極度夢幻（10:00~22:00）</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">19:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>享用晚餐，餐後帶女兒回飯店洗澡，調整時差步調</p></div>
+      </div>
+    </div>
+    <div class="transport">
+      <div class="transport-title">🚃 今日交通</div>
+      <div class="t-row"><div class="t-num">1</div><div>名鐵特急 μ-SKY：中部國際機場 → 名古屋車站（¥1,430 / 約 30 分鐘）</div></div>
+      <div class="t-row"><div class="t-num">2</div><div>地下鐵東山線：名古屋車站 → 榮站（¥210 / 約 5 分鐘，2 站）</div></div>
+    </div>
+    <div class="sec-label">今日餐廳</div>
+    <div class="meal-grid">
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?w=600&q=80" alt="炸豬排">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-d">晚餐</span></div>
+          <div class="meal-name">矢場炸豬排 榮LACHIC店</div>
+          <div class="meal-desc">LACHIC 9F，營業至 22:00。女兒點兒童小車造型豬排套餐，大人點招牌鐵板味噌豬排</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=矢場とん+ラシック名古屋" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+    </div>
+    <div class="tip">榮站地下街超大，推推車請跟著地面「黃色輪椅／推車貼紙」指標搭乘電梯直達地面</div>
+    <div class="hotel-row">🛏 今日住宿：<strong>榮區精選飯店</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=栄+ホテル+名古屋市中区" target="_blank">📍地圖</a></div>
+  </div>
+</div>
+
+<!-- ══ DAY 2 ══ -->
+<div class="day-card">
+  <div class="day-cover">
+    <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?w=900&q=80" alt="日本公園草皮" loading="lazy">
+    <div class="day-cover-overlay">
+      <div class="day-cover-text">
+        <div class="day-num">DAY 02 · 10/5（一）</div>
+        <div class="day-cover-title">飯店大風吹・則武之森大草皮放電</div>
+        <div class="day-cover-date">榮區退房 → Vessel Hotel（此後 6 晚不挪窩）</div>
+      </div>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">09:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>榮區飯店退房，Uber 叫計程車（¥1,500~¥2,000）直達 <strong>Vessel Hotel Campana 名古屋</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Nagoya" target="_blank">📍地圖</a> 寄放行李</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">10:15</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>步行 6 分鐘至<strong>則武之森（Noritake之森）</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=ノリタケの森+名古屋市西区" target="_blank">📍地圖</a>，復古紅磚建築與超大草皮，讓女兒吹泡泡盡情奔跑（園區全天開放）</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">11:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>步行至 <strong>AEON MALL Nagoya Noritake Garden</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=イオンモール名古屋ノリタケガーデン" target="_blank">📍地圖</a>，3F 用餐後逛<strong>蔦屋書店（TSUTAYA）</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=蔦屋書店+イオンモール名古屋ノリタケガーデン" target="_blank">📍地圖</a>，巨型鏡面書牆與兒童繪本專區共讀</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">14:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>女兒推車午睡，爸媽在 AEON MALL 放鬆逛街，補貨日系童裝與生活雜貨</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">16:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>步行回 Vessel Hotel 正式入住，享用大廳免費迎賓飲料（每日 14:00~21:00），榻榻米房間稍作休息</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">18:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>前往<strong>高島屋名古屋店</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=高島屋+名古屋駅" target="_blank">📍地圖</a>享用晚餐，步行回飯店</p></div>
+      </div>
+    </div>
+    <div class="transport">
+      <div class="transport-title">🚗 今日交通</div>
+      <div class="t-row"><div class="t-num">1</div><div>Uber 計程車：榮區飯店 → Vessel Hotel（約 ¥1,500~¥2,000）</div></div>
+      <div class="t-row"><div class="t-num">2</div><div>全程步行為主，則武之森、AEON MALL、Vessel Hotel 皆在步行距離內，今日不需搭地鐵</div></div>
+    </div>
+    <div class="sec-label">今日餐廳</div>
+    <div class="meal-grid">
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=80" alt="厚片吐司早餐">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-b">早餐</span></div>
+          <div class="meal-name">客美多咖啡 BREAD ERA 則武之森店</div>
+          <div class="meal-desc">08:00 起。黑咖啡免費送厚片吐司，強烈加點小倉紅豆泥</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=コメダ珈琲店+ノリタケの森" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80" alt="日式美食廣場">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-l">午餐</span></div>
+          <div class="meal-name">AEON MALL 3F 美食街 Kids Park</div>
+          <div class="meal-desc">降低高度的迷你桌椅，周邊圍繞軟墊遊戲區，爸媽輪流優雅點餐</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=イオンモール名古屋ノリタケガーデン+フードコート" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&q=80" alt="日式親子丼">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-d">晚餐</span></div>
+          <div class="meal-name">富士山高島屋 12F 雞三和</div>
+          <div class="meal-desc">營業至 23:00。名古屋地雞親子丼，雞肉極致軟嫩，3 歲寶寶能自己吃大半碗</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=鶏三和+高島屋名古屋店" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+    </div>
+    <div class="tip">今日全程不需搭地下鐵！全路段平面寬敞人行道，推車通行極度流暢</div>
+    <div class="hotel-row">🛏 今日住宿：<strong>Vessel Hotel Campana 名古屋</strong>（此後連住 6 晚）<a class="ml" href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Nagoya" target="_blank">📍地圖</a></div>
+  </div>
+</div>
+
+<!-- ══ DAY 3 ══ -->
+<div class="day-card">
+  <div class="day-cover">
+    <img src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=900&q=80" alt="吉卜力森林" loading="lazy">
+    <div class="day-cover-overlay">
+      <div class="day-cover-text">
+        <div class="day-num">DAY 03 · 10/6（二）</div>
+        <div class="day-cover-title">重頭戲！吉卜力公園夢幻驚喜之旅</div>
+        <div class="day-cover-date">直達巴士 → 動動力森林 → 吉卜力大倉庫</div>
+      </div>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">08:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>步行 10 分鐘至<strong>名鐵巴士中心 4F 24 號站牌</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=名鉄バスセンター+名古屋市中村区" target="_blank">📍地圖</a>，搭 09:00 直達巴士（大人 ¥1,000，約 40 分鐘）</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">10:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>抵達<strong>吉卜力公園</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=ジブリパーク+愛知県長久手市" target="_blank">📍地圖</a> → 持大散步券直奔<strong>動動力森林（Dondoko Forest）</strong>（10:00~17:00），5 公尺巨大木造龍貓神木，幼童可以鑽進去玩耍！</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">12:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>在長椅或樹蔭下享用自備野餐，稍作休息</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">13:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>進入<strong>吉卜力大倉庫</strong>，「貓巴士房（Children's Town）」可爬進大貓巴士內部、在巨型蒲公英絨毛墊彈跳，放電極致！</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">16:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>於正門口搭 16:40 直達巴士返回名古屋車站</p></div>
+      </div>
+    </div>
+    <div class="transport">
+      <div class="transport-title">🚌 今日交通</div>
+      <div class="t-row"><div class="t-num">1</div><div>步行：Vessel Hotel → 名鐵巴士中心（約 10 分鐘）</div></div>
+      <div class="t-row"><div class="t-num">2</div><div>高速直達巴士：名鐵巴士中心 4F 24號站牌 → 吉卜力公園（¥1,000 / 約 40 分鐘）</div></div>
+      <div class="t-row"><div class="t-num">3</div><div>返程：16:40 班次直達巴士返回名古屋車站（¥1,000）</div></div>
+      <div class="t-row"><div class="t-num warn">！</div><div>強烈推薦直達巴士，避免地鐵轉乘利尼莫線（Linimo）在地下街折騰推車</div></div>
+    </div>
+    <div class="sec-label">今日餐廳</div>
+    <div class="meal-grid">
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1580822184713-fc5400e7fe10?w=600&q=80" alt="日本便利商店飯糰">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-l">午餐</span></div>
+          <div class="meal-name">便利商店輕食野餐</div>
+          <div class="meal-desc">出發前在名古屋車站便利商店備好御飯糰、麵包、果汁。園內餐廳大排長龍，帶幼兒不適合等</div>
+        </div>
+      </div>
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=600&q=80" alt="日式炸雞翅">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-d">晚餐</span></div>
+          <div class="meal-name">風來坊 手羽先 名古屋車站西口店</div>
+          <div class="meal-desc">16:00~23:00。名古屋必吃炸雞翅，口味偏甜黑胡椒輕。交待「元祖手羽先，椒鹽少、不加胡椒」</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=風来坊+名古屋駅西口" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+    </div>
+    <div class="hotel-row">🛏 今日住宿：<strong>Vessel Hotel Campana 名古屋</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Nagoya" target="_blank">📍地圖</a></div>
+  </div>
+</div>
+
+<!-- ══ DAY 4 ══ -->
+<div class="day-card">
+  <div class="day-cover">
+    <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=900&q=80" alt="科學博物館" loading="lazy">
+    <div class="day-cover-overlay">
+      <div class="day-cover-text">
+        <div class="day-num">DAY 04 · 10/7（三）</div>
+        <div class="day-cover-title">市區全室內放電・名古屋市科學館</div>
+        <div class="day-cover-date">伏見站 → 科學館 → 鰻魚飯晚餐</div>
+      </div>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">09:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>步行至名古屋車站，搭地下鐵東山線 2 站至<strong>伏見站</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=伏見駅+名古屋市営地下鉄" target="_blank">📍地圖</a>（¥210），由 <strong>4 號出口（有電梯）</strong>出站，穿過白川公園</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">10:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p><strong>名古屋市科學館</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=名古屋市科学館" target="_blank">📍地圖</a>（09:30~17:00，大人 ¥400，3歲免費）<br>
+        ・2F 水之廣場：穿防水圍裙、拿小勺子撈球、轉動水車<br>
+        ・3F 機械機關：大量大紅按鈕，按下去軌道球就滾動<br>
+        ・定時表演：9 公尺高巨型人工龍捲風</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">13:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>步行至伏見站周邊享用午餐，原路線搭地鐵回名古屋車站</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">14:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>寬鬆午後，讓女兒回飯店好好補眠</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">18:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>散步至飯店附近享用鰻魚飯晚餐</p></div>
+      </div>
+    </div>
+    <div class="transport">
+      <div class="transport-title">🚃 今日交通</div>
+      <div class="t-row"><div class="t-num">1</div><div>地下鐵東山線：名古屋車站 → 伏見站（¥210 / 約 3 分鐘，2 站）</div></div>
+      <div class="t-row"><div class="t-num">2</div><div>步行：伏見站 4 號出口 → 白川公園 → 科學館（約 5 分鐘）</div></div>
+      <div class="t-row"><div class="t-num">3</div><div>返程：原路線地下鐵東山線 → 名古屋車站（¥210）</div></div>
+    </div>
+    <div class="sec-label">今日餐廳</div>
+    <div class="meal-grid">
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=600&q=80" alt="日式烏龍麵">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-l">午餐</span></div>
+          <div class="meal-name">和食麵處 嵯峨味（サガミ）名古屋站前店</div>
+          <div class="meal-desc">11:00~22:00。獨立榻榻米包廂，備有兒童餐具與豐富兒童菜單</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=サガミ+名古屋駅前店" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1583623025817-d180a2221d0a?w=600&q=80" alt="日本鰻魚飯">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-d">晚餐</span></div>
+          <div class="meal-name">ひつまぶし備長 大名古屋大廈店</div>
+          <div class="meal-desc">大名古屋大廈 3F，營業至 22:00。外皮酥脆無刺，剁碎淋醬拌白飯給女兒吃</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=ひつまぶし備長+大名古屋ビルヂング" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+    </div>
+    <div class="tip">科學館全室內無障礙，三棟樓互相連通有電梯，推推車暢行無阻</div>
+    <div class="hotel-row">🛏 今日住宿：<strong>Vessel Hotel Campana 名古屋</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Nagoya" target="_blank">📍地圖</a></div>
+  </div>
+</div>
+
+<!-- ══ DAY 5 ══ -->
+<div class="day-card">
+  <div class="day-cover">
+    <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=80" alt="日本神社" loading="lazy">
+    <div class="day-cover-overlay">
+      <div class="day-cover-text">
+        <div class="day-num">DAY 05 · 10/8（四）</div>
+        <div class="day-cover-title">東別院生活朝市・熱田神宮散步</div>
+        <div class="day-cover-date">卡死這天！名古屋最大寺廟市集</div>
+      </div>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">09:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>搭地下鐵<strong>東山線→鶴舞線→名城線</strong>至<strong>東別院站</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=東別院駅+名古屋市営地下鉄" target="_blank">📍地圖</a>（¥240 電子票證），<strong>4 號出口（有電梯）</strong>步行 3 分鐘</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">10:15</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p><strong>東別院生活朝市</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=東別院+手作り朝市+名古屋市中区" target="_blank">📍地圖</a>（10:00~14:00）— 百家手作文青雜貨與在地小農美食，廟宇廣場地面平坦、推車極好推</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">12:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>搭地鐵<strong>名城線（往金山方向）</strong>4 站至<strong>熱田神宮西站</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=熱田神宮西駅" target="_blank">📍地圖</a>（¥240），<strong>2 號出口（有電梯）</strong>出站</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">13:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p><strong>熱田神宮</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=熱田神宮+名古屋市熱田区" target="_blank">📍地圖</a>（境內全天開放）— 女兒推車午睡，爸媽享受千年古木芬多精；醒後尋找草地野生「神雞」</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">16:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>從<strong>神宮前站</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=神宮前駅+名古屋市熱田区" target="_blank">📍地圖</a>搭名鐵常滑線特急返回名古屋車站（¥240）</p></div>
+      </div>
+    </div>
+    <div class="transport">
+      <div class="transport-title">🚃 今日交通</div>
+      <div class="t-row"><div class="t-num">1</div><div>地下鐵：名古屋 → 東別院（東山線→鶴舞線→名城線，¥240）</div></div>
+      <div class="t-row"><div class="t-num">2</div><div>地下鐵名城線：東別院 → 熱田神宮西（¥240，4 站）</div></div>
+      <div class="t-row"><div class="t-num">3</div><div>名鐵常滑線特急：神宮前站 → 名古屋車站（¥240，約 8 分鐘）</div></div>
+    </div>
+    <div class="sec-label">今日餐廳</div>
+    <div class="meal-grid">
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1556040220-4096d522378d?w=600&q=80" alt="日本市集麵包">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-b">早午餐</span></div>
+          <div class="meal-name">東別院市集現場野餐</div>
+          <div class="meal-desc">現烤酵母麵包、手作戚風蛋糕、小農手捏飯糰，廟宇廣場長椅愜意野餐</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=東別院+手作り朝市+名古屋" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1617196034097-3e8c3a2ffb7f?w=600&q=80" alt="きしめん烏龍麵">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-s">下午茶</span></div>
+          <div class="meal-name">宮きしめん 神宮店</div>
+          <div class="meal-desc">09:00~16:30，境內露天雅座，推車免費入座。甜甜柴魚高湯，寬扁麵超對小小孩的胃</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=宮きしめん+熱田神宮" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+    </div>
+    <div class="tip">熱田神宮境內多碎石子路，推推車請走參道兩側較平坦的泥土路邊緣，省力非常多</div>
+    <div class="hotel-row">🛏 今日住宿：<strong>Vessel Hotel Campana 名古屋</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Nagoya" target="_blank">📍地圖</a></div>
+  </div>
+</div>
+
+<!-- ══ DAY 6 ══ -->
+<div class="day-card">
+  <div class="day-cover">
+    <img src="https://images.unsplash.com/photo-1566402441520-e06b0b9c4c95?w=900&q=80" alt="兒童樂園" loading="lazy">
+    <div class="day-cover-overlay">
+      <div class="day-cover-text">
+        <div class="day-num">DAY 06 · 10/9（五）</div>
+        <div class="day-cover-title">女兒瘋狂巔峰・長島麵包超人兒童博物館</div>
+        <div class="day-cover-date">高速巴士直達 → 博物館 → Jazz Dream Outlet</div>
+      </div>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">08:45</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>步行至<strong>名鐵巴士中心 4F 22 號站牌</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=名鉄バスセンター+名古屋市中村区" target="_blank">📍地圖</a>，購買「名古屋 → 長島溫泉」來回優惠套票（大人 ¥2,100，3歲免費），搭 09:00 高速巴士（約 50 分鐘）</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">10:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p><strong>長島麵包超人兒童博物館</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=アンパンマンこどもミュージアム+長島" target="_blank">📍地圖</a>（10:00~17:00，¥2,000~¥2,500）<br>
+        ・戶外：正版角色人偶大型熱歌勁舞表演<br>
+        ・室內：彩虹互動溜滑梯、果醬爺爺擬真麵包工廠<br>
+        ・必買：麵包超人造型紅豆麵包</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">14:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>移師隔壁 <strong>Jazz Dream 長島 Outlet</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=ジャズドリーム長島+桑名市" target="_blank">📍地圖</a>（10:00~20:00），女兒推車秒睡，媽媽開啟瘋狂逛街模式</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">16:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>原站牌搭高速巴士返回名古屋車站</p></div>
+      </div>
+    </div>
+    <div class="transport">
+      <div class="transport-title">🚌 今日交通</div>
+      <div class="t-row"><div class="t-num">1</div><div>步行：Vessel Hotel → 名鐵巴士中心（約 10 分鐘）</div></div>
+      <div class="t-row"><div class="t-num">2</div><div>高速直達巴士：名鐵巴士中心 4F 22號站牌 → 長島溫泉（¥2,100 來回 / 約 50 分鐘）</div></div>
+    </div>
+    <div class="sec-label">今日餐廳</div>
+    <div class="meal-grid">
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1569931727741-b29a7e36c57e?w=600&q=80" alt="可愛兒童餐">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-l">午餐</span></div>
+          <div class="meal-name">麵包超人樂園內美食街</div>
+          <div class="meal-desc">可愛造型容器烏龍麵／飯類，餐具全為耐摔樹脂，親子友善</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=アンパンマンこどもミュージアム+長島+レストラン" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1576097449798-7c7f90e1248a?w=600&q=80" alt="百貨地下美食">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-d">晚餐</span></div>
+          <div class="meal-name">高島屋地下街（B1）外帶→房內深夜居酒屋</div>
+          <div class="meal-desc">特價高級便當、現烤串燒、握壽司。等女兒秒睡後，爸媽在房間享受難得放風時光</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=高島屋+名古屋駅+地下食品売場" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+    </div>
+    <div class="hotel-row">🛏 今日住宿：<strong>Vessel Hotel Campana 名古屋</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Nagoya" target="_blank">📍地圖</a></div>
+  </div>
+</div>
+
+<!-- ══ DAY 7 ══ -->
+<div class="day-card">
+  <div class="day-cover">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="LEGO樂高" loading="lazy">
+    <div class="day-cover-overlay">
+      <div class="day-cover-text">
+        <div class="day-num">DAY 07 · 10/10（六）</div>
+        <div class="day-cover-title">樂高樂園深度玩・大須商店街</div>
+        <div class="day-cover-date">金城埠頭 → LEGOLAND → 大須 → 飛驒牛畢業大餐</div>
+      </div>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">09:15</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>於名古屋車站搭<strong>青波線（Aonami Line）</strong>直達終點<strong>金城埠頭站</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=金城ふ頭駅+名古屋市港区" target="_blank">📍地圖</a>（¥360，約 24 分鐘）</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">10:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p><strong>日本樂高樂園（LEGOLAND Japan）</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=レゴランド・ジャパン+名古屋市港区" target="_blank">📍地圖</a>（10:00~17:00，3歲 ¥3,700 起，大人 ¥4,900 起）<br>
+        ・滿 90cm 可搭乘 8 成設施<br>
+        ・主攻：得寶谷積木城堡、小火車、潛水艇看真鯊魚與熱帶魚</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">14:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>搭青波線回名古屋站，轉地鐵<strong>櫻通線→丸之內站→鶴舞線→大須觀音站</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=大須観音駅+名古屋市営地下鉄" target="_blank">📍地圖</a>（¥240），<strong>2 號出口（有電梯）</strong>出站</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">15:10</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p><strong>大須商店街</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=大須商店街+名古屋市中区大須" target="_blank">📍地圖</a> — 廟前廣場餵鴿子、<strong>橡子共和國龍貓專賣店</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=どんぐり共和国+大須" target="_blank">📍地圖</a>、Seria 百元店，女兒推車午睡，爸媽自在逛老街</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">17:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>Uber 叫計程車回 Vessel Hotel（¥1,200），2F 大浴場洗澡換衣，迎接<strong>畢業大餐</strong></p></div>
+      </div>
+    </div>
+    <div class="transport">
+      <div class="transport-title">🚃 今日交通</div>
+      <div class="t-row"><div class="t-num">1</div><div>青波線（Aonami Line）：名古屋車站 → 金城埠頭（¥360 / 約 24 分鐘）</div></div>
+      <div class="t-row"><div class="t-num">2</div><div>青波線返程：金城埠頭 → 名古屋車站（¥360）</div></div>
+      <div class="t-row"><div class="t-num">3</div><div>地下鐵：名古屋 → 丸之內（櫻通線）→ 大須觀音（鶴舞線），¥240</div></div>
+      <div class="t-row"><div class="t-num">4</div><div>Uber 計程車：大須 → Vessel Hotel（約 ¥1,200）</div></div>
+    </div>
+    <div class="sec-label">今日餐廳</div>
+    <div class="meal-grid">
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=80" alt="日式鬆餅">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-b">早餐</span></div>
+          <div class="meal-name">名鐵百貨 1F 星乃珈琲店</div>
+          <div class="meal-desc">08:00 起，出入口全平面。現點現做窯烤舒芙蕾熱蛋糕，淋楓糖漿</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=星乃珈琲店+名鉄百貨店+名古屋" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=80" alt="樂高餐廳">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-l">午餐</span></div>
+          <div class="meal-name">樂高樂園內 / Maker's Pier 商圈</div>
+          <div class="meal-desc">可愛的樂高積木造型薯條</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=メイカーズピア+名古屋市港区" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="頂級燒肉">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-d">畢業大餐</span></div>
+          <div class="meal-name">馬喰一代 飛驒牛燒肉 名古屋長良店</div>
+          <div class="meal-desc">17:00~23:00。頂級飛驒牛，獨立封閉包廂（個室），建議出發前一個月官網預約</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=馬喰一代+名古屋長良店" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+    </div>
+    <div class="hotel-row">🛏 今日住宿：<strong>Vessel Hotel Campana 名古屋</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=Vessel+Hotel+Campana+Nagoya" target="_blank">📍地圖</a></div>
+  </div>
+</div>
+
+<!-- ══ DAY 8 ══ -->
+<div class="day-card">
+  <div class="day-cover">
+    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=900&q=80" alt="機場飛機" loading="lazy">
+    <div class="day-cover-overlay">
+      <div class="day-cover-text">
+        <div class="day-num">DAY 08 · 10/11（日）</div>
+        <div class="day-cover-title">機場波音室內公園・平安返台</div>
+        <div class="day-cover-date">FLIGHT OF DREAMS → 出境 → 登機</div>
+      </div>
+    </div>
+  </div>
+  <div class="day-body">
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">09:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>Vessel Hotel 退房，步行至名古屋車站，搭<strong>名鐵特急 μ-SKY</strong> 直達<strong>中部國際機場</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=中部国際空港+愛知県常滑市" target="_blank">📍地圖</a>（¥1,430，約 30 分鐘）</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">10:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>辦完登機手續寄放行李後，直奔機場 1F <strong>FLIGHT OF DREAMS</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=フライト・オブ・ドリームズ+中部国際空港" target="_blank">📍地圖</a>（10:00~17:00，攀爬網 ¥500）— 圍繞真實波音 787 的巨大室內公園，女兒瘋狂奔跑 2 小時，上飛機秒睡，完美收官！</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">12:30</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>機場 4F <strong>藍天城（Sky Town）江戶老街</strong><a class="ml" href="https://www.google.com/maps/search/?api=1&query=スカイタウン+中部国際空港" target="_blank">📍地圖</a> 享用午餐後出境過海關</p></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-side"><span class="tl-time">14:00</span><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-main"><p>順利登機，平安返台！</p></div>
+      </div>
+    </div>
+    <div class="transport">
+      <div class="transport-title">🚃 今日交通</div>
+      <div class="t-row"><div class="t-num">1</div><div>名鐵特急 μ-SKY：名古屋車站 → 中部國際機場（¥1,430 / 約 30 分鐘）</div></div>
+      <div class="t-row"><div class="t-num warn">！</div><div>提早 3 小時到機場，先辦登機手續＆寄放行李，再帶女兒去 FLIGHT OF DREAMS 放完最後電力</div></div>
+    </div>
+    <div class="sec-label">今日餐廳</div>
+    <div class="meal-grid">
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80" alt="炸蝦三明治">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-b">早餐</span></div>
+          <div class="meal-name">名古屋車站地下街（Esca）コンパル</div>
+          <div class="meal-desc">08:00 起，創業近 80 年昭和老店。招牌炸蝦三明治（エビフライサンド），外帶上車吃</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=コンパル+エスカ名古屋駅" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+      <div class="meal-card">
+        <img class="meal-img" src="https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=600&q=80" alt="烏龍麵">
+        <div class="meal-body">
+          <div class="meal-tag-row"><span class="meal-tag t-l">午餐</span></div>
+          <div class="meal-name">機場 4F 藍天城 丸龜製麵</div>
+          <div class="meal-desc">10:00~21:00。上飛機前一碗溫熱烏龍麵暖暖胃，給女兒暖暖的出發</div>
+          <a class="meal-maplink" href="https://www.google.com/maps/search/?api=1&query=丸亀製麺+中部国際空港" target="_blank">📍 Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /main -->
 </body>
 </html>
